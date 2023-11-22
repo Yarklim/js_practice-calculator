@@ -20,7 +20,7 @@ body {
 
 .calculator {
 	/* width: 300px; */
-	width: 470px;
+	width: 440px;
 	height: auto;
 	background-color: black;
 	margin: 0 auto;
@@ -68,7 +68,7 @@ body {
 }
 
 .zero-btn {
-	padding: 30px 100px 26px 100px;
+	padding: 30px 95px 26px 90px;
 }
 
 .btn-orange {
