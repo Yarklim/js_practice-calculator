@@ -41,6 +41,15 @@ buttons.forEach((button) => {
     }
 
     //   if push = or actions button
+    if (key === '=') {
+      if (b === '') b = a;
+      switch (sign) {
+        case '+':
+          a = doAdd(a, b);
+          break;
+      }
+      mainDisplay.textContent = a;
+    }
   });
 });
 
