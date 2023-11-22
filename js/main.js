@@ -1,4 +1,5 @@
-const display = document.querySelector('.display');
+const mainDisplay = document.querySelector('.main-display');
+const secondDisplay = document.querySelector('.second-display');
 const buttons = document.querySelectorAll('.button');
 
 const action = ['+', '-', 'x', '/', '%'];
@@ -21,21 +22,25 @@ buttons.forEach((button) => {
     if (digits.includes(key)) {
       if (b === '' && sign === '') {
         a += key;
-        display.textContent = a;
+        mainDisplay.textContent = a;
+        secondDisplay.textContent = a;
       } else if (a !== '' && b !== '' && result) {
         b = key;
         result = false;
-        display.textContent = b;
+        mainDisplay.textContent = b;
+        secondDisplay.textContent += b;
       } else {
         b += key;
-        display.textContent = b;
+        mainDisplay.textContent = b;
+        secondDisplay.textContent += key;
       }
       return;
     }
     // if push button +, -, x, /
     if (action.includes(key)) {
       sign = key;
-      display.textContent = sign;
+      mainDisplay.textContent = sign;
+      secondDisplay.textContent += ` ${sign} `;
       return;
     }
     // if push button =
@@ -56,8 +61,7 @@ buttons.forEach((button) => {
           break;
       }
       result = true;
-      display.textContent = a;
-      console.log(a, sign, b);
+      mainDisplay.textContent = a;
     }
   });
 });
@@ -67,7 +71,8 @@ function clearAll() {
   b = '';
   sign = '';
   result = false;
-  display.textContent = 0;
+  mainDisplay.textContent = 0;
+  secondDisplay.textContent = '';
 }
 
 function doAdd(a, b) {
