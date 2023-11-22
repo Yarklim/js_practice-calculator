@@ -34,6 +34,7 @@ buttons.forEach((button) => {
         mainDisplay.textContent = b;
         secondDisplay.textContent += key;
       }
+      console.log(a, sign, b);
       return;
     }
     // if push button +, -, x, /
@@ -43,8 +44,8 @@ buttons.forEach((button) => {
       secondDisplay.textContent += ` ${sign} `;
       return;
     }
-    // if push button =
-    if (key === '=') {
+    // if push button = or action button
+    if (key === '=' || (action.includes(key) && sign !== '')) {
       if (b === '') b = a;
       switch (sign) {
         case '+':
