@@ -1,64 +1,8 @@
-const mainDisplay = document.querySelector('.main-display');
-const secondDisplay = document.querySelector('.second-display');
-const buttons = document.querySelectorAll('.button');
-
-const action = ['+', '-', 'x', '/', '%'];
-const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-
-let a = '';
-let b = '';
-let sign = '';
-let result = false;
-
-buttons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    const key = e.target.textContent;
-
-    if (key === 'AC') {
-      clearAll();
-    }
-
-    //   if push digits button
-    if (digits.includes(key)) {
-      if (b === '' && sign === '') {
-        a += key;
-        mainDisplay.textContent = a;
-        secondDisplay.textContent = a;
-      }
-
-      if (a !== '' && sign !== '') {
-        b += key;
-        mainDisplay.textContent = b;
-        secondDisplay.textContent += key;
-      }
-    }
-
-    //   if push actions button
-    if (action.includes(key)) {
-      sign = key;
-      mainDisplay.textContent = sign;
-      secondDisplay.textContent += ` ${sign} `;
-    }
-
-    //   if push = or actions button
-    if (key === '=') {
-      if (b === '') b = a;
-      switch (sign) {
-        case '+':
-          a = doAdd(a, b);
-          break;
-      }
-      mainDisplay.textContent = a;
-    }
-  });
-});
-
-//  Math functions
 function clearAll() {
   a = '';
   b = '';
   sign = '';
-  result = false;
+  result = 0;
   mainDisplay.textContent = 0;
   secondDisplay.textContent = '';
 }
