@@ -22,6 +22,9 @@ buttons.forEach((button) => {
     if (digits.includes(key)) {
       if (b === '' && sign === '' && !result) {
         a += key;
+        if (a.includes('.')) {
+          a = clearZero(a);
+        }
         mainDisplay.textContent = a;
         secondDisplay.textContent = a;
       }
