@@ -1,8 +1,20 @@
+import { clearZero, doDisable } from './services.js';
+import {
+  doAdd,
+  doSubstract,
+  doMultiplay,
+  doDivide,
+  doPercent,
+  addPercent,
+  substractPercent,
+} from './math.js';
+
 const mainDisplay = document.querySelector('.main-display');
 const secondDisplay = document.querySelector('.second-display');
 const buttons = document.querySelectorAll('.button');
+const dot = document.querySelector('.btn-dot');
 
-const action = ['+', '-', 'x', '/', '%'];
+const math = ['+', '-', 'x', '/', '%'];
 const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 
 let a = '';
@@ -24,7 +36,7 @@ buttons.forEach((button) => {
         a += key;
         if (a.includes('.')) {
           a = clearZero(a);
-          disableDot(e);
+          doDisable(dot);
         }
         mainDisplay.textContent = a;
         secondDisplay.textContent = a;
@@ -33,6 +45,7 @@ buttons.forEach((button) => {
   });
 });
 
+// ================ Clear All ==============
 function clearAll() {
   a = '';
   b = '';
@@ -40,25 +53,4 @@ function clearAll() {
   result = 0;
   mainDisplay.textContent = 0;
   secondDisplay.textContent = '';
-}
-
-function clearZero(str) {
-  const dotIdx = str.indexOf('.');
-  const tempStr = str.slice(0, dotIdx);
-  let startIdx = tempStr.length - 1;
-
-  for (let i = 0; i < tempStr.length; i++) {
-    if (tempStr[i] === '0') {
-      continue;
-    } else {
-      startIdx = i;
-      break;
-    }
-  }
-
-  return str.slice(startIdx);
-}
-
-function disableDot(e) {
-  e.target.setAttribute('disabled', 'disabled');
 }
