@@ -24,6 +24,7 @@ buttons.forEach((button) => {
         a += key;
         if (a.includes('.')) {
           a = clearZero(a);
+          disableDot(e);
         }
         mainDisplay.textContent = a;
         secondDisplay.textContent = a;
@@ -56,4 +57,8 @@ function clearZero(str) {
   }
 
   return str.slice(startIdx);
+}
+
+function disableDot(e) {
+  e.target.setAttribute('disabled', 'disabled');
 }
