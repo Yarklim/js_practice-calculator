@@ -1,3 +1,5 @@
+import { dot } from './index.js';
+
 export function clearZero(str) {
   const dotIdx = str.indexOf('.');
   const tempStr = str.slice(0, dotIdx);
@@ -17,4 +19,28 @@ export function clearZero(str) {
 
 export function doDisable(el) {
   el.setAttribute('disabled', 'disabled');
+}
+
+export function doEnable(arr) {
+  arr.forEach((item) => {
+    if (item.hasAttribute('disabled')) {
+      item.removeAttribute('disabled');
+    }
+  });
+}
+
+export function deleteLastSymbol(str) {
+  let newStr = str.slice(0, -1);
+  let hasDot = false;
+
+  if (str.includes('.')) {
+    hasDot = true;
+  }
+  if (newStr.includes('.')) {
+    hasDot = false;
+  }
+
+  dot.removeAttribute('disabled');
+
+  return newStr;
 }

@@ -1,4 +1,9 @@
-import { clearZero, doDisable } from './services.js';
+import {
+  clearZero,
+  doDisable,
+  doEnable,
+  deleteLastSymbol,
+} from './services.js';
 import {
   doAdd,
   doSubstract,
@@ -12,7 +17,7 @@ import {
 const mainDisplay = document.querySelector('.main-display');
 const secondDisplay = document.querySelector('.second-display');
 const buttons = document.querySelectorAll('.button');
-const dot = document.querySelector('.btn-dot');
+export const dot = document.querySelector('.btn-dot');
 
 const math = ['+', '-', 'x', '/', '%'];
 const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
@@ -26,6 +31,7 @@ buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
     if (e.target.textContent === 'AC') {
       clearAll();
+      doEnable(buttons);
     }
 
     const key = e.target.textContent;
@@ -41,6 +47,14 @@ buttons.forEach((button) => {
         mainDisplay.textContent = a;
         secondDisplay.textContent = a;
       }
+    }
+
+    //   if push Backspace button
+    if (e.target.hasAttribute('backspace')) {
+      a = deleteLastSymbol(a);
+
+      mainDisplay.textContent = a || 0;
+      secondDisplay.textContent = a;
     }
   });
 });
