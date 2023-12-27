@@ -3,6 +3,7 @@ import {
   doDisable,
   doEnable,
   deleteLastSymbol,
+  doNegativeNumber,
 } from './services.js';
 import {
   doAdd,
@@ -53,7 +54,7 @@ buttons.forEach((button) => {
     if (e.target.hasAttribute('backspace')) {
       a = deleteLastSymbol(a);
 
-      mainDisplay.textContent = a || 0;
+      mainDisplay.textContent = a;
       secondDisplay.textContent = a;
     }
   });
@@ -65,6 +66,12 @@ function clearAll() {
   b = '';
   sign = '';
   result = 0;
-  mainDisplay.textContent = 0;
+  mainDisplay.textContent = '';
   secondDisplay.textContent = '';
+}
+
+// ================ showDisplays ===========
+function showDisplays() {
+  mainDisplay.textContent = a;
+  secondDisplay.textContent = a;
 }

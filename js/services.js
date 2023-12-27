@@ -44,3 +44,7 @@ export function deleteLastSymbol(str) {
 
   return newStr;
 }
+
+export function doNegativeNumber(num) {
+  return -num;
+}
