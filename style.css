@@ -67,7 +67,9 @@ body {
   margin-top: 20px;
 }
 
-.button {
+.service-button,
+.num-button,
+.math-button {
   width: 22%;
   height: 22%;
 

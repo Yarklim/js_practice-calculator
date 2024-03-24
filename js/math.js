@@ -1,28 +1,28 @@
-export function doAdd(a, b) {
-  return String(Number(a) + Number(b));
+export function doAddition(num1, num2) {
+  return String(Number(num1) + Number(num2));
 }
 
-export function doSubstract(a, b) {
-  return String(a - b);
+export function doSubstract(num1, num2) {
+  return String(Number(num1) - Number(num2));
 }
 
-export function doMultiplay(a, b) {
-  return String(a * b);
+export function doMultiplay(num1, num2) {
+  return String(Number(num1) * Number(num2));
 }
 
-export function doDivide(a, b) {
-  if (b === '0') return 'Error';
-  return String(a / b);
+export function doDivide(num1, num2) {
+  if (num2 === '0') return 'Error';
+  return String(Number(num1) / Number(num2));
 }
 
-export function doPercent(a, b) {
-  return String(a * (b / 100));
+export function doPercent(num1, num2) {
+  return String(Number(num1) * (Number(num2) / 100));
 }
 
-export function addPercent(a, b) {
-  return String(a + a * (b / 100));
+export function addPercent(num1, num2) {
+  return String(Number(num1) + Number(num1) * (Number(num2) / 100));
 }
 
-export function substractPercent(a, b) {
-  return String(a - a * (b / 100));
+export function substractPercent(num1, num2) {
+  return String(Number(num1) - Number(num1) * (Number(num2) / 100));
 }
